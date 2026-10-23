@@ -1,7 +1,8 @@
+
 [project]
-name = "database-query-optimiser"
+name = "pg-advisor-mcp"
 version = "0.1.0"
-description = "Add your description here"
+description = "Autonomous PostgreSQL query optimization and migration safety MCP server"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
@@ -11,3 +12,11 @@ dependencies = [
     "python-dotenv>=1.2.4",
     "sqlglot>=30.24.0",
 ]
+
+# This tells uv and Python what command to run when executed as a package:
+[project.scripts]
+pg-advisor = "query_optimiser.server:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
