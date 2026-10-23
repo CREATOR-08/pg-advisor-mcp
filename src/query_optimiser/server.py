@@ -37,9 +37,10 @@ register_prompts(mcp)
 
 
 
-import asyncio
-import os
-import sys
+
+# Fix psycopg Windows ProactorEventLoop incompatibility
+if sys.platform == "win32":
+    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
 async def main():
     """
